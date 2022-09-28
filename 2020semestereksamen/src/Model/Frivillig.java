@@ -54,6 +54,15 @@ public class Frivillig {
             return result;
         }
 
+    public int antalGaver(){
+        int gave = 0;
+        if(this.ledigeTimer() < maksAntalTimer){
+            gave = 1;
+        }
+        return gave;
+    }
+
+
 
 
     @Override

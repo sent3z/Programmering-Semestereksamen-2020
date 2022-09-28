@@ -65,6 +65,7 @@ public class Job {
 
     }
 
+
     @Override
     public String toString() {
         return kode + "" + beskrivelse + " antal timer: " + antalTimer;

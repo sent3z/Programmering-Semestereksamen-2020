@@ -30,8 +30,35 @@ public class Controller {
             throw new RuntimeException("Not enough avaiable hours");
         }
         return vagt;
-
     }
+
+    public static boolean findFrivillig(Festival festival, String navn) {
+            Boolean fundet = false;
+            int left = 0;
+            int right = festival.gaverTilFrivillige().size() - 1;
+            while (fundet == false && left <= right) {
+                int middle = (left+right) / 2;
+                String s = festival.gaverTilFrivillige().get(middle);
+                if (s.compareTo(navn) == 0)
+                    fundet = true;
+                else if (s.compareTo(navn) > 0)
+                    right = middle - 1;
+                else
+                    left = middle + 1;
+            }
+            return fundet;
+        }
+
+        
+
+
+
+
+
+
+
+
+
 
     public static void initStorage() {
         Festival northside = createFestival("NorthSide", LocalDate.of(2020, 6,4), LocalDate.of(2020,6,6));

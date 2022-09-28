@@ -2,6 +2,7 @@ package Model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Festival {
     private String navn;
@@ -41,6 +42,24 @@ public class Festival {
             }
         }
         return result;
+        }
+
+        public ArrayList<String> gaverTilFrivillige() {
+        ArrayList<String> frivilligegaver = new ArrayList<>();
+        for (Job j : jobs) {
+            for (Vagt v : j.getVagter()) {
+                Frivillig frivillig = v.getFrivillig();
+                if (frivillig instanceof FrivilligForening) {
+                    frivilligegaver.add(frivillig.getNavn() + "" + frivillig.antalGaver() + "" + (((FrivilligForening) frivillig).getForeningsNavn()));
+                } else {
+                    frivilligegaver.add(frivillig.getNavn() + "" + frivillig.antalGaver();
+                }
+            }
+        }
+            Collections.sort(frivilligegaver);
+
+        return frivilligegaver;
+
         }
 
     }
